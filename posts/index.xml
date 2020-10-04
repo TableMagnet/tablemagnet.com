@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on TableMagnet</title>
+    <link>https://tablemagnet.com/posts.html</link>
+    <description>Recent content in Posts on TableMagnet</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tablemagnet.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Simplifying Assembly</title>
+      <link>https://tablemagnet.com/posts/2020-10-04-simplifying-assembly.html</link>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tablemagnet.com/posts/2020-10-04-simplifying-assembly.html</guid>
+      <description>During some reversing practice I came across a section of assembly which caught my attention because of Ghidra&amp;rsquo;s decompilaion. Ghidra has decompiled this section of assembly into a single line with multiple bitwise operations which did not appear to be a reasonably representation.
+I thought this might be a good opportunity to dissect some intriguing logic. This is Ghidra&amp;rsquo;s disassembly.
+00402fb8 push ESI 00402fb9 call __scrt_is_ucrt_dll_in_use 00402fbe test EAX,EAX 00402fc0 jz LAB_00402fe2 00402fc2 mov EAX,FS:[0x18] 00402fc8 mov ESI,DAT_00408448 00402fcd mov EDX,[EAX + 0x4] 00402fd0 jmp LAB_00402fd6 00402fd2 cmp EDX,EAX 00402fd4 jz LAB_00402fe6 00402fd6 xor EAX,EAX 00402fd8 mov ECX,EDX 00402fda lock 00402fdb cmpxchg [ESI],ECX 00402fde test EAX,EAX 00402fe0 jnz LAB_00402fd6 00402fe2 xor al,al 00402fe4 pop ESI 00402fe5 ret 00402fe6 mov al,0x1 00402fe8 pop ESI 00402fe9 ret The code first calls a function and tests the result returned in EAX.</description>
+    </item>
+    
+  </channel>
+</rss>

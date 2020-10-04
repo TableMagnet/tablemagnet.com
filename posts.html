@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Posts</title>
+
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="https://tablemagnet.com/posts.html" />
+
+<link href="https://tablemagnet.com/css/stylesheet.min.1e18c08e410fc9eafbe1bfba4455a75ae4e6715c5333f7aa74ca9b9e2e40395d.css" integrity="sha256-HhjAjkEPyer74b&#43;6RFWnWuTmcVxTM/eqdMqbni5AOV0=" rel="preload stylesheet"
+    as="style">
+
+<link rel="apple-touch-icon" href="https://tablemagnet.com/apple-touch-icon.png">
+<link rel="icon" href="https://tablemagnet.com/favicon.ico">
+<meta name="generator" content="Hugo 0.68.3" />
+<link rel="alternate" type="application/rss+xml" href="https://tablemagnet.com/posts/index.xml" title="TableMagnet" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@TableMagnet"/>
+<meta name="twitter:author" content="@TableMagnet"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:image" content="https://tablemagnet.com/icon.png"/>
+<meta name="twitter:image:alt" content="TableMagnet logo"/>
+
+</head>
+
+<body class="list" id="top">
+<header class="header">
+    <nav class="nav">
+        <p class="logo"><a href="https://tablemagnet.com/">TableMagnet</a></p>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+        </ul>
+    </nav>
+</header>
+    <main class="main"> 
+<header class="page-header">
+  <h1>Posts</h1>
+</header>
+
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>
+      Simplifying Assembly
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>During some reversing practice I came across a section of assembly which caught my attention because of Ghidra’s decompilaion. Ghidra has decompiled this section of assembly into a single line with multiple bitwise operations which did not appear to be a reasonably representation.
+I thought this might be a good opportunity to dissect some intriguing logic. This is Ghidra’s disassembly.
+00402fb8 push ESI 00402fb9 call __scrt_is_ucrt_dll_in_use 00402fbe test EAX,EAX 00402fc0 jz LAB_00402fe2 00402fc2 mov EAX,FS:[0x18] 00402fc8 mov ESI,DAT_00408448 00402fcd mov EDX,[EAX &#43; 0x4] 00402fd0 jmp LAB_00402fd6 00402fd2 cmp EDX,EAX 00402fd4 jz LAB_00402fe6 00402fd6 xor EAX,EAX 00402fd8 mov ECX,EDX 00402fda lock 00402fdb cmpxchg [ESI],ECX 00402fde test EAX,EAX 00402fe0 jnz LAB_00402fd6 00402fe2 xor al,al 00402fe4 pop ESI 00402fe5 ret 00402fe6 mov al,0x1 00402fe8 pop ESI 00402fe9 ret The code first calls a function and tests the result returned in EAX....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>04 October 2020</time>
+  </footer>
+  <a class="entry-link" aria-label="post link to Simplifying Assembly" href="https://tablemagnet.com/posts/2020-10-04-simplifying-assembly.html"></a>
+</article>
+
+    </main><footer class="footer">
+    <span>&copy; 2020 <a href="https://tablemagnet.com/">TableMagnet</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo️️</a>️</span>
+    <span>&middot;</span>
+    <span>Theme️ <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top">
+    <button class="top-link" id="top-link" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" /></svg>
+    </button>
+</a>
+<script src="https://tablemagnet.com/js/highlight.min.min.e7afc2928c0925d65c4732dfebe147014d91299a98e819e4b42f25c4fa68e91c.js" integrity="sha256-56/CkowJJdZcRzLf6&#43;FHAU2RKZqY6BnktC8lxPpo6Rw="></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+</script>
+</body>
+
+</html>
